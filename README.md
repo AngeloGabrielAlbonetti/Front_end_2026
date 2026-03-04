@@ -15,5 +15,5 @@ Ou clique no botão abaixo:
 
 ## 👨‍💻 Autor  
 
-Desenvolvido por **Seu Nome**  
+Desenvolvido por **Angelo Gabriel Albonetti**  
 Disciplina de Front-End  
