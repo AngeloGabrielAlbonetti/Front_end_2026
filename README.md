@@ -9,7 +9,7 @@ Repositório da disciplina de **Front-End**, com foco no desenvolvimento de inte
 
 Ou clique no botão abaixo:
 
-[![Ver Projeto]https://angelogabrielalbonetti.github.io/Front_end_2026/)
+[![Ver Projeto](https://img.shields.io/badge/🔗-Ver%20Projeto-blue?style=for-the-badge)](https://angelogabrielalbonetti.github.io/Front_end_2026/)
 
 ---
 
