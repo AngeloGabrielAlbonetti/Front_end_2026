@@ -1,1 +1,33 @@
+name: Atualizar index automaticamente
 
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v3
+
+      - name: Instalar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Instalar biblioteca requests
+        run: pip install requests
+
+      - name: Rodar script Python
+        run: python gerar_index.py
+
+      - name: Atualizar index no repositorio
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add index.html
+          git commit -m "Atualizando index automaticamente" || echo "Nada para atualizar"
+          git push
