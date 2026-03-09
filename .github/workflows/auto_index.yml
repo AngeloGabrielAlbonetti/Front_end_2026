@@ -9,7 +9,7 @@ jobs:
 atualizar:
 runs-on: ubuntu-latest
 
-```
+
 steps:
   - name: Baixar repositório
     uses: actions/checkout@v3
@@ -32,4 +32,3 @@ steps:
       git add index.html
       git commit -m "Atualizando index automaticamente" || echo "Nada para atualizar"
       git push
-```
