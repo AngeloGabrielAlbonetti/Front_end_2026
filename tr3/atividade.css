@@ -1,0 +1,161 @@
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+}
+
+form input,
+form select,
+form textarea,
+form label {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    margin: 5px auto;
+    align-items: flex-star;
+    border-radius: 7px;
+    padding: 7px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+}
+
+form input {
+    background-color: #161b22;
+    color: azure;
+}
+
+form select {
+    background-color: #161b22;
+    color: azure;
+}
+
+form textarea {
+    background-color: #161b22;
+    color: azure;
+}
+
+form input,
+form select,
+form textarea,
+form label:hover {
+    transform: scale(1.1);
+}
+
+body {
+    background: linear-gradient(to bottom, #658bc4, #161b22);
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 15px;
+    justify-content: center;
+}
+
+ul li a {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    background-color: azure;
+    opacity: 0.9;
+    padding: 10px 20px;
+    border-radius: 7px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#topo,
+#menu-principal {
+    margin: 0;
+    padding: 20px;
+    color: white;
+}
+
+#topo {
+    text-align: center;
+}
+
+ul li a:hover {
+    transform: scale(1.2);
+    color: #ffffff;
+    background-color: #293241;
+}
+
+nav {
+    padding: 20px;
+    margin: 0;
+    gap: 20px
+}
+
+section {
+    background-color: aliceblue;
+    opacity: 0.9;
+    border-radius: 12px;
+    margin: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 7px;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+section:hover {
+    transform: scale(1.03);
+    color: #658bc4;
+    background-color: #293241;
+}
+
+section ol {
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12px;
+    gap: 20px;
+}
+
+section table {
+    border-collapse: collapse;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+td,
+th {
+    padding: 10px;
+}
+
+section table tr td:hover {
+    display: flex;
+    transform: scale(1.2);
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+}
+
+header {
+    padding: 20px;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+footer {
+    background-color: #658bc4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 7px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    gap: 15px;
+}
+
+summary:hover {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: scale(1.2);
+    color: #ffffff;
+}
