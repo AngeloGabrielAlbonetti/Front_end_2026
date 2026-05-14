@@ -567,6 +567,123 @@
         .resumo-tarefas strong {
             font-weight: bold;
         }
+        /* ===== Exercício 06 - Crédito para Festas & Eventos ===== */
+        
+        .resumo-tabela tr.desconto-row td {
+            background-color: #fff8e1;
+        }
+        
+        .resumo-tabela tr.desconto-row td:first-child {
+            color: #856404;
+            background-color: #fff3cd;
+        }
+        
+        .resumo-tabela tr.desconto-row td:last-child {
+            color: #856404;
+            background-color: #fff8e1;
+        }
+        /* ===== Exercício 07 - Card Guard / Validador de Cartão ===== */
+        
+        .card-guard-input-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        
+        .card-guard-input-row input {
+            flex: 1;
+            letter-spacing: 2px;
+            font-size: 1.05rem;
+        }
+        
+        .painel-cartao {
+            margin-top: 20px;
+            border-radius: 6px;
+            overflow: hidden;
+            display: none;
+            border: 1px solid #b2ede4;
+            font-size: 0.9rem;
+        }
+        
+        .painel-cartao .painel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .painel-cartao .painel-header.valido {
+            background-color: #1e7e34;
+            color: #fff;
+        }
+        
+        .painel-cartao .painel-header.invalido {
+            background-color: #c0392b;
+            color: #fff;
+        }
+        
+        .painel-cartao .painel-header .status-badge {
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.25);
+            font-weight: 600;
+        }
+        
+        .painel-cartao .painel-body {
+            background-color: #fff;
+        }
+        
+        .painel-cartao .painel-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            border-bottom: 1px solid #edf7f5;
+        }
+        
+        .painel-cartao .painel-row:last-child {
+            border-bottom: none;
+        }
+        
+        .painel-cartao .painel-row .label {
+            color: #555;
+            font-size: 0.85rem;
+        }
+        
+        .painel-cartao .painel-row .value {
+            font-weight: bold;
+            color: #1a56db;
+            text-align: right;
+            font-size: 0.9rem;
+        }
+        
+        .painel-cartao .painel-row .value.bandeira-visa {
+            color: #1a1f71;
+        }
+        
+        .painel-cartao .painel-row .value.bandeira-master {
+            color: #eb001b;
+        }
+        
+        .painel-cartao .painel-row .value.bandeira-elo {
+            color: #f7d000;
+            text-shadow: 0 0 1px #888;
+        }
+        
+        .painel-cartao .painel-row .value.bandeira-amex {
+            color: #007bc1;
+        }
+        
+        .painel-cartao .painel-row .value.bandeira-hiper {
+            color: #e37020;
+        }
+        
+        .painel-cartao .painel-row .value.bandeira-desconhecida {
+            color: #888;
+        }
     </style>
 </head>
 
@@ -690,12 +807,97 @@
         <ul id="taskList"></ul>
     </div>
 
+    <!-- Exercício 06 - Crédito para Festas & Eventos -->
+    <div class="card">
+        <h1>🎉 Crédito para Festas & Eventos</h1>
+        <p class="subtitle">Simule o orçamento do seu evento com o Infinity Bank.</p>
+
+        <label for="pacoteEvento">Pacote do Evento</label>
+        <select id="pacoteEvento" class="mb">
+            <option value="">Selecione um pacote...</option>
+            <option value="standard">Standard — R$ 50,00/pessoa</option>
+            <option value="premium">Premium — R$ 80,00/pessoa</option>
+            <option value="deluxe">Infinity Deluxe — R$ 120,00/pessoa</option>
+        </select>
+
+        <label for="qtdPessoas">Quantidade de Pessoas</label>
+        <input type="number" id="qtdPessoas" placeholder="Ex: 150" min="1" step="1" />
+
+        <button id="btnOrcamento">Calcular Orçamento</button>
+
+        <div id="resultado-evento" class="resultado"></div>
+
+        <table class="resumo-tabela" id="resumoEvento">
+            <tr>
+                <td>🎊 Pacote Selecionado</td>
+                <td id="rPacote"></td>
+            </tr>
+            <tr>
+                <td>👥 Quantidade de Pessoas</td>
+                <td id="rQtd"></td>
+            </tr>
+            <tr>
+                <td>💵 Custo Bruto</td>
+                <td id="rCustoBruto"></td>
+            </tr>
+            <tr>
+                <td>🔧 Taxa de Serviço (10%)</td>
+                <td id="rTaxaServico"></td>
+            </tr>
+            <tr id="rowDesconto" class="desconto-row" style="display:none;">
+                <td>🎁 Desconto Fidelidade (5%)</td>
+                <td id="rDesconto"></td>
+            </tr>
+            <tr class="destaque">
+                <td>🏆 Total Final</td>
+                <td id="rTotalEvento"></td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="card">
+        <h1>🛡️ Card Guard</h1>
+        <p class="subtitle">Insira um número de cartão para análise de validade e identificação do emissor.</p>
+
+        <label for="numCartao">Número do Cartão</label>
+        <input type="text" id="numCartao" placeholder="0000 0000 0000 0000" maxlength="19" />
+
+        <button id="btnAnalisar">Analisar Cartão</button>
+
+        <div class="painel-cartao" id="painelCartao">
+            <div class="painel-header" id="painelHeader">
+                <span id="painelTitulo">🔍 Resultado da Análise</span>
+                <span class="status-badge" id="painelStatus"></span>
+            </div>
+            <div class="painel-body">
+                <div class="painel-row">
+                    <span class="label">💳 Bandeira</span>
+                    <span class="value" id="infosBandeira"></span>
+                </div>
+                <div class="painel-row">
+                    <span class="label">🏭 Setor Industrial (IIN D1)</span>
+                    <span class="value" id="infosSetor"></span>
+                </div>
+                <div class="painel-row">
+                    <span class="label">🏦 Banco Emissor (IIN D2-5)</span>
+                    <span class="value" id="infosEmissor"></span>
+                </div>
+                <div class="painel-row">
+                    <span class="label">🗂️ Tipo de Produto (IIN D6-8)</span>
+                    <span class="value" id="infosProduto"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="exe.js"></script>
     <script src="exe2.js"></script>
     <script src="exe3.js"></script>
     <script src="exe4.js"></script>
     <script src="exe5.js"></script>
     <script src="exe6.js"></script>
+    <script src="exe7.js"></script>
 
 
 </body>
