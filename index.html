@@ -6,108 +6,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trabalhos-front-end</title>
 
-<style>
-nav img {
-    display: flex;
-    border-radius: 30px;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-nav {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    text-align: center;
-    gap: 20px;
-    background-color: #ffffff;
-    border-radius: 7px;
-    padding: 5px;
-}
-
-nav samp {
-    display: flex;
-    align-items: center;
-}
-
-.tr {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    padding: 20px;
-}
-
-.tr img {
-    display: flex;
-    padding: 10px;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-.tr a:hover {
-    transform: scale(1.1);
-}
-
-body {
-    text-align: center;
-    background: linear-gradient(to bottom, #00ffff, #ffffff);
-    min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-}
-</style>
+<link rel="stylesheet" href="css.css">
 </head>
 
 <body>
 
-<div class="navegação">
-<nav>
-<img src="https://angelogabrielalbonetti.github.io/Front_end_2026/tr2/1745601131792.jpg" height="50" width="50">
-<samp>
-Aluno: Angelo Gabriel Albonetti<br>
-RA: 250543483-2
-</samp>
-</nav>
-</div>
+<canvas id="fundo" aria-hidden="true"></canvas>
+<div id="brilho" aria-hidden="true"></div>
 
-<h1>Meus Trabalhos front-end</h1>
+<header>
+    <div class="navegação">
+        <nav>
+            <div class="avatar">
+                <img src="https://angelogabrielalbonetti.github.io/Front_end_2026/tr2/1745601131792.jpg" alt="Foto de Angelo Gabriel Albonetti">
+            </div>
+            <samp>
+                Aluno: <b>Angelo Gabriel Albonetti</b><br>
+                RA: 250543483-2
+            </samp>
+        </nav>
+    </div>
 
-<div class="tr" id="trabalhos"></div>
+    <div class="hero">
+        <h1>Meus Trabalhos front-end</h1>
+        <p class="digitando" id="digitando"></p>
+    </div>
+</header>
 
-<script>
+<main>
+    <div class="ferramentas">
+        <div class="busca">
+            <input type="search" id="busca" placeholder="Buscar trabalho pelo número" aria-label="Buscar trabalho">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </div>
+        <button class="botao" id="ordem" type="button">Ordem: crescente</button>
+        <div class="contador" id="contador" aria-live="polite"></div>
+    </div>
 
-const usuario = "angelogabrielalbonetti";
-const repo = "Front_end_2026";
+    <div class="tr" id="trabalhos"></div>
+</main>
 
-fetch(`https://api.github.com/repos/${usuario}/${repo}/contents`)
-.then(res => res.json())
-.then(data => {
+<button id="topo" type="button" aria-label="Voltar ao topo">↑</button>
 
-const container = document.getElementById("trabalhos");
 
-data.forEach(item => {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
-if(item.type === "dir" && item.name.startsWith("tr")){
-
-const numero = item.name.replace("tr","");
-
-const link = document.createElement("a");
-link.href = `https://${usuario}.github.io/${repo}/${item.name}/`;
-link.target = "_blank";
-
-link.innerHTML = `
-<img src="https://cdn-icons-png.flaticon.com/512/1157/1157026.png" height="50" width="50">
-<p>Trabalho ${numero}</p>
-`;
-
-container.appendChild(link);
-
-}
-
-});
-
-});
-
-</script>
+<script src="js.js"></script>
 
 </body>
 </html>
